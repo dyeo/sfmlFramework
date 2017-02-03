@@ -44,9 +44,10 @@ void Game::run()
 		}
 
 		deltaTime = frameTimer.restart();
-		accumulatedTime += deltaTime.asSeconds();
 
 		if (paused) continue;
+
+		accumulatedTime += deltaTime.asSeconds();
 
 		while (accumulatedTime >= deltaTime.asSeconds())
 		{
