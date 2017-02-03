@@ -68,8 +68,6 @@ void Game::run()
 ///
 void Game::init()
 {
-	cout << "init" << endl;
-
 	window.create(sf::VideoMode(windowWidth, windowHeight), windowTitle, sf::Style::Close);
 	window.setFramerateLimit(targetFrameRate);
 }
@@ -79,7 +77,6 @@ void Game::init()
 ///
 void Game::update(sf::Time deltaTime)
 {
-	cout << "update " << deltaTime.asSeconds() << endl;
 }
 
 ///
@@ -87,8 +84,6 @@ void Game::update(sf::Time deltaTime)
 ///
 void Game::quit()
 {
-	cout << "quit" << endl;
-
 	window.close();
 }
 
@@ -97,8 +92,6 @@ void Game::quit()
 ///
 void Game::render()
 {
-	cout << "render" << endl;
-
 	window.clear();
 
 	window.display();
@@ -109,8 +102,6 @@ void Game::render()
 ///
 void Game::processEvents(sf::Event event)
 {
-	cout << "processEvents" << endl;
-
 	if (event.type == sf::Event::Closed)
 	{
 		running = false;
@@ -123,5 +114,4 @@ void Game::processEvents(sf::Event event)
 	{
 		paused = false;
 	}
-
 }
