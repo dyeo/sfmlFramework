@@ -4,16 +4,10 @@
 
 class GenericEvent : public Event
 {
-	static constexpr NameType eventType = "GenericEvent";
+	EVENT_NAME_DECLARATION(GenericEvent)
 
 public:
 
 	GenericEvent() {}
 	~GenericEvent() {}
-
-	NameType name() const
-	{
-		return eventType;
-	}
-
 };

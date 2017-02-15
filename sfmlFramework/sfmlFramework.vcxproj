@@ -130,6 +130,7 @@
     <ClInclude Include="Event.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GenericEvent.hpp" />
+    <ClInclude Include="SFMLEvent.hpp" />
     <ClInclude Include="SFML.hpp" />
   </ItemGroup>
   <ItemGroup>
