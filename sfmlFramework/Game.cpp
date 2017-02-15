@@ -37,17 +37,6 @@ void Game::run()
 	sf::Time deltaTime;
 	float accumulatedTime = 0.0f;
 
-	Event *myEvent = new SFMLEvent();
-
-	std::cout << myEvent->name() << std::endl;
-	
-	if (myEvent->name() == "SFMLEvent")
-	{
-		SFMLEvent *newEvent = static_cast<SFMLEvent *>(myEvent);
-
-	}
-
-
 	while (window.isOpen() && running == true)
 	{
 		sf::Event event;
