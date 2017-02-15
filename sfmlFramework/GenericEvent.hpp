@@ -4,14 +4,14 @@
 
 class GenericEvent : public Event
 {
-	static constexpr DescriptorType eventType = "GenericEvent";
+	static constexpr NameType eventType = "GenericEvent";
 
 public:
 
 	GenericEvent() {}
 	~GenericEvent() {}
 
-	DescriptorType type() const
+	NameType name() const
 	{
 		return eventType;
 	}

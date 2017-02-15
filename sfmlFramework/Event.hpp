@@ -6,8 +6,8 @@ public:
 
 	virtual ~Event() {}
 
-	typedef const char* DescriptorType;
+	typedef const char* NameType;
 
-	virtual DescriptorType type() const = 0;
+	virtual NameType name() const = 0;
 
 };
