@@ -1,5 +1,7 @@
 #include "Game.hpp"
 
+#include "GenericEvent.hpp"
+
 #include <iostream>
 
 using std::cout; using std::endl;
@@ -29,11 +31,15 @@ void Game::run()
 {
 	running = true;
 
-	init();
+	start();
 
 	sf::Clock frameTimer;
 	sf::Time deltaTime;
 	float accumulatedTime = 0.0f;
+
+	Event *myEvent = new GenericEvent();
+
+	std::cout << myEvent->type() << std::endl;
 
 	while (window.isOpen() && running == true)
 	{
@@ -66,7 +72,7 @@ void Game::run()
 ///
 ///
 ///
-void Game::init()
+void Game::start()
 {
 	window.create(sf::VideoMode(windowWidth, windowHeight), windowTitle, sf::Style::Close);
 	window.setFramerateLimit(targetFrameRate);

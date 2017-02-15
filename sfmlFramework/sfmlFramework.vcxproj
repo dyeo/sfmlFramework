@@ -127,7 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Event.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="GenericEvent.hpp" />
     <ClInclude Include="SFML.hpp" />
   </ItemGroup>
   <ItemGroup>

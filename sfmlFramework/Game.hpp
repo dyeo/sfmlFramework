@@ -16,7 +16,7 @@ public:
 	
 protected:
 
-	void						init();
+	void						start();
 	void						update(sf::Time);
 	void						quit();
 
