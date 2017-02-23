@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Event">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="Event::NameType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Event.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Event.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventSystem">
+    <Position X="3" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAKAAAAAAAgAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventSystem.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

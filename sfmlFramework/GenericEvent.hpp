@@ -4,7 +4,7 @@
 
 class GenericEvent : public Event
 {
-	EVENT_NAME_DECLARATION(GenericEvent)
+	CLASS_INTROSPECTION(GenericEvent)
 
 public:
 
