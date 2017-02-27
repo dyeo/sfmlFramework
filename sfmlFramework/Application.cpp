@@ -1,4 +1,4 @@
-#include "Game.hpp"
+#include "Application.hpp"
 
 #include "SFMLEvent.hpp"
 
@@ -9,7 +9,7 @@ using std::cout; using std::endl;
 ///
 ///
 ///
-/*constructor*/ Game::Game()
+/*constructor*/ Application::Application()
 	: windowWidth(1280)
 	, windowHeight(720)
 	, windowTitle("SFML Framework")
@@ -20,14 +20,14 @@ using std::cout; using std::endl;
 ///
 ///
 ///
-/*destructor*/ Game::~Game()
+/*destructor*/ Application::~Application()
 {
 }
 
 ///
 ///
 ///
-void Game::run()
+void Application::run()
 {
 	running = true;
 
@@ -68,7 +68,7 @@ void Game::run()
 ///
 ///
 ///
-void Game::start()
+void Application::start()
 {
 	window.create(sf::VideoMode(windowWidth, windowHeight), windowTitle, sf::Style::Close);
 	window.setFramerateLimit(targetFrameRate);
@@ -77,14 +77,14 @@ void Game::start()
 ///
 ///
 ///
-void Game::update(sf::Time deltaTime)
+void Application::update(sf::Time deltaTime)
 {
 }
 
 ///
 ///
 ///
-void Game::quit()
+void Application::quit()
 {
 	window.close();
 }
@@ -92,7 +92,7 @@ void Game::quit()
 ///
 ///
 ///
-void Game::render()
+void Application::render()
 {
 	window.clear();
 
@@ -102,7 +102,7 @@ void Game::render()
 ///
 ///
 ///
-void Game::processEvents(sf::Event event)
+void Application::processEvents(sf::Event event)
 {
 	if (event.type == sf::Event::Closed)
 	{

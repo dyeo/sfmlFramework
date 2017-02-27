@@ -5,12 +5,12 @@
 #include <SFML\Graphics.hpp>
 #include <string>
 
-class Game : public sf::NonCopyable
+class Application : public sf::NonCopyable
 {
 public:
 
-	/*constructor*/				Game();
-	/*destructor*/				~Game();
+	/*constructor*/				Application();
+	/*destructor*/				~Application();
 
 	void						run();
 	
