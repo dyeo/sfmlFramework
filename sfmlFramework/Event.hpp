@@ -9,4 +9,9 @@ public:
 
 	virtual ~Event() {}
 
+	virtual bool isValidObserver() const
+	{
+		return true;
+	}
+
 };

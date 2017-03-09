@@ -1,6 +1,6 @@
 #include "Application.hpp"
-
 #include "SFMLEvent.hpp"
+#include "MenuState.h"
 
 #include <iostream>
 
@@ -9,18 +9,20 @@ using std::cout; using std::endl;
 ///
 ///
 ///
-/*constructor*/ Application::Application()
+Application::Application()
 	: windowWidth(1280)
 	, windowHeight(720)
-	, windowTitle("SFML Framework")
 	, targetFrameRate(60)
+	, windowTitle("SFML Framework")
+	, eventSystem(*this)
+	, stateStack(4)
 {
 }
 
 ///
 ///
 ///
-/*destructor*/ Application::~Application()
+Application::~Application()
 {
 }
 
@@ -29,8 +31,6 @@ using std::cout; using std::endl;
 ///
 void Application::run()
 {
-	running = true;
-
 	start();
 
 	sf::Clock frameTimer;
@@ -61,8 +61,6 @@ void Application::run()
 	}
 
 	quit();
-
-	running = false;
 }
 
 ///
@@ -72,6 +70,9 @@ void Application::start()
 {
 	window.create(sf::VideoMode(windowWidth, windowHeight), windowTitle, sf::Style::Close);
 	window.setFramerateLimit(targetFrameRate);
+	running = true;
+
+	pushState(new MenuState(*this));
 }
 
 ///
@@ -79,6 +80,8 @@ void Application::start()
 ///
 void Application::update(sf::Time deltaTime)
 {
+	if (!running) return;
+	stateStack.back()->onUpdate(deltaTime);
 }
 
 ///
@@ -86,6 +89,7 @@ void Application::update(sf::Time deltaTime)
 ///
 void Application::quit()
 {
+	running = false;
 	window.close();
 }
 
@@ -94,9 +98,31 @@ void Application::quit()
 ///
 void Application::render()
 {
+	if (!running) return;
+
 	window.clear();
+	
+	stateStack.back()->onRender();
 
 	window.display();
+}
+
+///
+///
+///
+void Application::pause()
+{
+	paused = true;
+	stateStack.back()->onPause();
+}
+
+///
+///
+///
+void Application::resume()
+{
+	paused = false;
+	stateStack.back()->onResume();
 }
 
 ///
@@ -110,10 +136,47 @@ void Application::processEvents(sf::Event event)
 	}
 	else if (event.type == sf::Event::LostFocus)
 	{
-		paused = true;
+		pause();
 	}
 	else if (event.type == sf::Event::GainedFocus)
 	{
-		paused = false;
+		resume();
 	}
+
+	eventSystem.onProcessEvents(event);
+	stateStack.back()->onProcessEvents(event);
+}
+
+///
+///
+///
+void Application::pushState(GameState *gameState)
+{
+	stateStack.push_back(gameState);
+	stateStack.back()->onStart();
+}
+
+///
+///
+///
+void Application::popState()
+{
+	stateStack.back()->onQuit();
+	delete stateStack.back();
+	stateStack.pop_back();
+	running = stateStack.empty();
+}
+
+///
+///
+///
+GameState* Application::peekState(int state)
+{
+	size_t ssize = stateStack.size();
+	int finalStatePos = (ssize + state) % ssize;
+	if (finalStatePos >= 0 && finalStatePos < ssize)
+	{
+		return *(stateStack.end() - 2);
+	}
+	return nullptr;
 }

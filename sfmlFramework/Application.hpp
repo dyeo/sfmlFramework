@@ -1,6 +1,8 @@
 #pragma once
 
 #include "SFML.hpp"
+#include "GameState.h"
+#include "EventSystem.hpp"
 
 #include <SFML\Graphics.hpp>
 #include <string>
@@ -9,42 +11,59 @@ class Application : public sf::NonCopyable
 {
 public:
 
-	/*constructor*/				Application();
-	/*destructor*/				~Application();
+	Application();
+	~Application();
 
-	void						run();
+	void run();
 	
 protected:
 
-	void						start();
-	void						update(sf::Time);
-	void						quit();
+	void start();
+	void update(sf::Time);
+	void quit();
 
-	void						render();
-
-	void						processEvents(sf::Event);
+	const sf::RenderWindow&		getWindow() const { return window; }
+	void render();
+		 
+	void pause();
+	void resume();
+	bool isPaused() const { return paused; }
+		 
+	bool isRunning() const { return running; }
+		 
+	void processEvents(sf::Event);
+		 
+	void pushState(GameState *gameState);
+	void popState();
+	GameState* peekState(int state);
 
 private:
 
+	// stack of game states
+	std::vector < GameState* >	stateStack;
+
+	// event system
+	EventSystem eventSystem;
+
 	// the window to draw to
-	sf::RenderWindow			window;
+	sf::RenderWindow window;
 
 	// if the game is running or not
-	bool						running;
+	bool running;
 
 	// if the game loop is paused or not
-	bool						paused;
+	bool paused;
 	
 	// width of the window, in screen units (usually pixels)
-	unsigned int				windowWidth;
+	unsigned int windowWidth;
 
 	// height of the window, in screen units (usually pixels)
-	unsigned int				windowHeight;
+	unsigned int windowHeight;
 
 	// title of the window
-	std::string					windowTitle;
+	std::string windowTitle;
 
 	// ideal frame rate for the game to run at, in frames per second
-	unsigned int				targetFrameRate;
+	unsigned int targetFrameRate;
 
 };

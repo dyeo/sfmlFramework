@@ -7,24 +7,24 @@
 
 class Application;
 
-class System
+class GameState
 {
-	CLASS_INTROSPECTION(System)
+	CLASS_INTROSPECTION(GameState)
 
 public:
 
-	System(Application &_game) : game(_game) {}
-	virtual ~System() {}
+	GameState(Application &_game) : game(_game) {}
+	virtual ~GameState() {}
 
 	virtual void onStart() {}
 	virtual void onUpdate(sf::Time) {}
 	virtual void onQuit() {}
-				 
+
 	virtual void onRender() {}
-				 
+
 	virtual void onPause() {}
 	virtual void onResume() {}
-				 
+
 	virtual void onProcessEvents(sf::Event) {}
 
 	Application &game;

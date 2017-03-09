@@ -7,17 +7,30 @@
 #include <map>
 #include <vector>
 
-class EventSystem // : public System
+class EventSystem : public System
 {
+	CLASS_INTROSPECTION(EventSystem)
+
 public:
 
 	typedef std::function< void(const Event&) > EventCallback;
 
-	EventSystem() {}
+	EventSystem(Application &_game) : System(_game) {}
 	~EventSystem() {}
 
 	void subscribe(const NameType &name, EventCallback &&callback);
 	void notify(const Event &event) const;
+	
+	void onStart();
+	void onUpdate(sf::Time);
+	void onQuit();
+		 
+	void onRender();
+		 
+	void onPause();
+	void onResume();
+		 
+	void onProcessEvents(sf::Event);
 
 protected:
 

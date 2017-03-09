@@ -14,11 +14,17 @@ typedef const char* NameType;
 public: \
 static constexpr ::NameType className = str(CLASS_NAME); \
 virtual ::NameType name() const \
-{ return className; } \
+{ \
+return className; \
+} \
 bool compare(const ::NameType &rhs) const \
-{ return name() == rhs; } \
+{ \
+return name() == rhs; \
+} \
 bool compare(const CLASS_NAME &rhs) const \
-{ return name() == rhs.name(); } \
-private:
+{ \
+return name() == rhs.name(); \
+} \
+private: \
 
 //

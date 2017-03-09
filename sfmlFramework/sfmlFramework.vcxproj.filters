@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Events">
       <UniqueIdentifier>{1a2e8ebf-6f5f-43ec-9039-cc44549ec87c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game States">
+      <UniqueIdentifier>{8af57e46-7a30-4104-b678-b69667808c41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game States">
+      <UniqueIdentifier>{0667e9cc-5c6b-4672-a877-047db9718fe1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SFML.hpp">
@@ -39,14 +45,20 @@
     <ClInclude Include="SFMLEvent.hpp">
       <Filter>Header Files\Events</Filter>
     </ClInclude>
-    <ClInclude Include="System.hpp">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
     <ClInclude Include="EventSystem.hpp">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
     <ClInclude Include="Object.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuState.h">
+      <Filter>Header Files\Game States</Filter>
+    </ClInclude>
+    <ClInclude Include="System.hpp">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\Game States</Filter>
     </ClInclude>
     <ClInclude Include="Application.hpp">
       <Filter>Header Files</Filter>
@@ -58,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="EventSystem.cpp">
       <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuState.cpp">
+      <Filter>Source Files\Game States</Filter>
     </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
