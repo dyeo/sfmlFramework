@@ -22,7 +22,7 @@ protected:
 	void update(sf::Time);
 	void quit();
 
-	const sf::RenderWindow&		getWindow() const { return window; }
+	const sf::RenderWindow& getWindow() const { return window; }
 	void render();
 		 
 	void pause();
@@ -40,7 +40,7 @@ protected:
 private:
 
 	// stack of game states
-	std::vector < GameState* >	stateStack;
+	std::vector < GameState* > stateStack;
 
 	// event system
 	EventSystem eventSystem;
