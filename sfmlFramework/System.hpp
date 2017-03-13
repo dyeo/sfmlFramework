@@ -13,7 +13,7 @@ class System
 
 public:
 
-	System(Application &_game) : game(_game) {}
+	System(Application *const app) : application(app) {}
 	virtual ~System() {}
 
 	virtual void onStart() {}
@@ -27,7 +27,7 @@ public:
 				 
 	virtual void onProcessEvents(sf::Event) {}
 
-	Application &game;
+	Application *const application;
 
 private:
 };

@@ -1,6 +1,6 @@
 #include "Application.hpp"
 #include "SFMLEvent.hpp"
-#include "MenuState.h"
+#include "MenuState.hpp"
 
 #include <iostream>
 
@@ -14,8 +14,7 @@ Application::Application()
 	, windowHeight(720)
 	, targetFrameRate(60)
 	, windowTitle("SFML Framework")
-	, eventSystem(*this)
-	, stateStack(4)
+	, eventSystem(this)
 {
 }
 
@@ -72,7 +71,25 @@ void Application::start()
 	window.setFramerateLimit(targetFrameRate);
 	running = true;
 
-	pushState(new MenuState(*this));
+	eventSystem.subscribe(SFMLEvent::className, [=](const Event& e)
+	{
+		SFMLEvent event = *dynamic_cast<const SFMLEvent *>(&e);
+
+		if (event.type == sf::Event::Closed)
+		{
+			running = false;
+		}
+		else if (event.type == sf::Event::LostFocus)
+		{
+			pause();
+		}
+		else if (event.type == sf::Event::GainedFocus)
+		{
+			resume();
+		}
+	});
+
+	pushState(new MenuState(this));
 }
 
 ///
@@ -130,20 +147,10 @@ void Application::resume()
 ///
 void Application::processEvents(sf::Event event)
 {
-	if (event.type == sf::Event::Closed)
-	{
-		running = false;
-	}
-	else if (event.type == sf::Event::LostFocus)
-	{
-		pause();
-	}
-	else if (event.type == sf::Event::GainedFocus)
-	{
-		resume();
-	}
-
 	eventSystem.onProcessEvents(event);
+
+	if (!running) return;
+
 	stateStack.back()->onProcessEvents(event);
 }
 
@@ -164,7 +171,9 @@ void Application::popState()
 	stateStack.back()->onQuit();
 	delete stateStack.back();
 	stateStack.pop_back();
-	running = stateStack.empty();
+
+	if (stateStack.empty()) running = false;
+
 }
 
 ///
@@ -172,9 +181,9 @@ void Application::popState()
 ///
 GameState* Application::peekState(int state)
 {
-	size_t ssize = stateStack.size();
-	int finalStatePos = (ssize + state) % ssize;
-	if (finalStatePos >= 0 && finalStatePos < ssize)
+	size_t numStates = stateStack.size();
+	int finalStatePos = (numStates + state) % numStates;
+	if (finalStatePos >= 0 && finalStatePos < numStates)
 	{
 		return *(stateStack.end() - 2);
 	}

@@ -5,6 +5,7 @@
 class Event
 {
 	CLASS_INTROSPECTION(Event)
+
 public:
 
 	virtual ~Event() {}
@@ -13,5 +14,4 @@ public:
 	{
 		return true;
 	}
-
 };

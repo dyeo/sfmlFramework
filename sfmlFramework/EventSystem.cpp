@@ -1,6 +1,5 @@
 #include "EventSystem.hpp"
 
-#include "GenericEvent.hpp"
 #include "SFMLEvent.hpp"
 
 void EventSystem::subscribe(const NameType &name, EventCallback &&callback)

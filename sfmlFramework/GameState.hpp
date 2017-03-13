@@ -13,7 +13,7 @@ class GameState
 
 public:
 
-	GameState(Application &_game) : game(_game) {}
+	GameState(Application *const app) : application(app) {}
 	virtual ~GameState() {}
 
 	virtual void onStart() {}
@@ -27,7 +27,7 @@ public:
 
 	virtual void onProcessEvents(sf::Event) {}
 
-	Application &game;
+	Application *const application;
 
 private:
 };

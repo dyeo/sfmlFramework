@@ -1,14 +1,24 @@
 #pragma once
 
-#include "MenuState.h"
+#include "MenuState.hpp"
+
+#include "Application.hpp"
+#include "SFMLEvent.hpp"
 
 #include <iostream>
 
 using std::cout;
 using std::endl;
 
-MenuState::MenuState(Application &_game)
-	: GameState(_game)
+
+void MenuState_HandleSFMLEVent(const Event &e)
+{
+	
+		
+}
+
+MenuState::MenuState(Application *const app)
+	: GameState(app)
 {
 	cout << __FUNCTION__ << endl;
 }
@@ -16,6 +26,16 @@ MenuState::MenuState(Application &_game)
 void MenuState::onStart() 
 {
 	cout << __FUNCTION__ << endl;
+
+	application->eventSystem.subscribe(SFMLEvent::className, [=](const Event &e)
+	{
+		const SFMLEvent *sfe = dynamic_cast<const SFMLEvent*>(&e);
+
+		if (sfe->type == sfe->KeyPressed && sfe->key.code == sf::Keyboard::B)
+		{
+			application->popState();
+		}
+	});
 }
 
 void MenuState::onUpdate(sf::Time) 

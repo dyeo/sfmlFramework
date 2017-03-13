@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GameState.h"
+#include "GameState.hpp"
 
 class MenuState : public GameState
 {
@@ -8,7 +8,7 @@ class MenuState : public GameState
 
 public:
 
-	MenuState(Application &_game);
+	MenuState(Application *const app);
 
 	void onStart();
 	void onUpdate(sf::Time);

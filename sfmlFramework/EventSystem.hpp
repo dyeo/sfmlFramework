@@ -7,6 +7,8 @@
 #include <map>
 #include <vector>
 
+class Application;
+
 class EventSystem : public System
 {
 	CLASS_INTROSPECTION(EventSystem)
@@ -15,7 +17,7 @@ public:
 
 	typedef std::function< void(const Event&) > EventCallback;
 
-	EventSystem(Application &_game) : System(_game) {}
+	EventSystem(Application *const app) : System(app) {}
 	~EventSystem() {}
 
 	void subscribe(const NameType &name, EventCallback &&callback);
