@@ -131,7 +131,9 @@
     <ClInclude Include="EventSystem.hpp" />
     <ClInclude Include="Application.hpp" />
     <ClInclude Include="GameState.hpp" />
+    <ClInclude Include="Macro.hpp" />
     <ClInclude Include="MenuState.hpp" />
+    <ClInclude Include="Messaging.hpp" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="SFMLEvent.hpp" />
     <ClInclude Include="SFML.hpp" />

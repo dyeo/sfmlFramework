@@ -60,6 +60,12 @@
     <ClInclude Include="MenuState.hpp">
       <Filter>Header Files\Game States</Filter>
     </ClInclude>
+    <ClInclude Include="Messaging.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
