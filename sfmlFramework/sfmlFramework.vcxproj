@@ -138,6 +138,7 @@
     <ClInclude Include="SFMLEvent.hpp" />
     <ClInclude Include="SFML.hpp" />
     <ClInclude Include="System.hpp" />
+    <ClInclude Include="TestObjects.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EventSystem.cpp" />
