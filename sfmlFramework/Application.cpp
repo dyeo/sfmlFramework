@@ -173,7 +173,6 @@ void Application::popState()
 	stateStack.pop_back();
 
 	if (stateStack.empty()) running = false;
-
 }
 
 ///
@@ -185,7 +184,7 @@ GameState* Application::peekState(int state)
 	int finalStatePos = (numStates + state) % numStates;
 	if (finalStatePos >= 0 && finalStatePos < numStates)
 	{
-		return *(stateStack.end() - 2);
+		return *(stateStack.begin() + finalStatePos);
 	}
 	return nullptr;
 }
