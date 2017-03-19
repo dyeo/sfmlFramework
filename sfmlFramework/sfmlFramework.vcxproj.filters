@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Game States">
       <UniqueIdentifier>{0667e9cc-5c6b-4672-a877-047db9718fe1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\World Management">
+      <UniqueIdentifier>{631df3ef-f9ba-44ee-997a-536958a7be26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World Management">
+      <UniqueIdentifier>{f61aa9a8-07dc-4de3-8f90-d1a9c4719664}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SFML.hpp">
@@ -69,6 +75,12 @@
     <ClInclude Include="TestObjects.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="World.hpp">
+      <Filter>Header Files\World Management</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.hpp">
+      <Filter>Header Files\World Management</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -82,6 +94,9 @@
     </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Source Files\World Management</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
