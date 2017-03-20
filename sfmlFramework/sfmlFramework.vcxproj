@@ -131,6 +131,7 @@
     <ClInclude Include="EventSystem.hpp" />
     <ClInclude Include="Application.hpp" />
     <ClInclude Include="GameState.hpp" />
+    <ClInclude Include="IGameUpdatable.h" />
     <ClInclude Include="Macro.hpp" />
     <ClInclude Include="MenuState.hpp" />
     <ClInclude Include="Messaging.hpp" />

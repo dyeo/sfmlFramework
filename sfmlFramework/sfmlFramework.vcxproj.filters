@@ -37,6 +37,9 @@
     <Filter Include="Source Files\World Management">
       <UniqueIdentifier>{f61aa9a8-07dc-4de3-8f90-d1a9c4719664}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Interfaces">
+      <UniqueIdentifier>{9e62185c-d14d-4fac-8dcc-d206db7bb1a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SFML.hpp">
@@ -80,6 +83,9 @@
     </ClInclude>
     <ClInclude Include="Transform.hpp">
       <Filter>Header Files\World Management</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameUpdatable.h">
+      <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

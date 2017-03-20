@@ -1,19 +1,14 @@
 #pragma once
 
-#include "Object.hpp"
+#include "IUpdatable.h"
 
-#include "SFML.hpp"
-#include <SFML/Window.hpp>
-
-class Application;
-
-class GameState
+class GameState : public IUpdatable
 {
 	CLASS_INTROSPECTION(GameState)
 
 public:
 
-	GameState(Application *const app) : application(app) {}
+	GameState(Application *const app) : IUpdatable(app) {}
 	virtual ~GameState() {}
 
 	virtual void onStart() {}
@@ -26,8 +21,6 @@ public:
 	virtual void onResume() {}
 
 	virtual void onProcessEvents(sf::Event) {}
-
-	Application *const application;
 
 private:
 };

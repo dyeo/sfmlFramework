@@ -1,19 +1,14 @@
 #pragma once
 
-#include "Object.hpp"
+#include "IUpdatable.h"
 
-#include "SFML.hpp"
-#include <SFML/Window.hpp>
-
-class Application;
-
-class System
+class System : public IUpdatable
 {
 	CLASS_INTROSPECTION(System)
 
 public:
 
-	System(Application *const app) : application(app) {}
+	System(Application *const app) : IUpdatable(app) {}
 	virtual ~System() {}
 
 	virtual void onStart() {}
@@ -26,8 +21,6 @@ public:
 	virtual void onResume() {}
 				 
 	virtual void onProcessEvents(sf::Event) {}
-
-	Application *const application;
 
 private:
 };
