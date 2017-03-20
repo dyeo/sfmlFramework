@@ -53,18 +53,6 @@ public:
 
 	//
 
-	void								scale(scl_type scl);
-
-	scl_type							getScale() const;
-
-	void								setScale(scl_type scl);
-
-	scl_type							getLocalScale() const;
-
-	void								setLocalScale(scl_type scl);
-
-	//
-
 	void								rotate(rot_type rot);
 
 	rot_type							getRotation() const;
@@ -75,17 +63,29 @@ public:
 
 	void								setLocalRotation(rot_type rot);
 
+	//
+
+	void								scale(scl_type scl);
+
+	scl_type							getScale() const;
+
+	void								setScale(scl_type scl);
+
+	scl_type							getLocalScale() const;
+
+	void								setLocalScale(scl_type scl);
+
 private:
 
 	Transform *parent;
 	std::vector<Transform*> children;
 
 	pos_type local_position;
-	scl_type local_scale;
 	rot_type local_rotation;
+	scl_type local_scale;
 
 	pos_type global_position;
-	scl_type global_scale;
 	rot_type global_rotation;
+	scl_type global_scale;
 
 };
