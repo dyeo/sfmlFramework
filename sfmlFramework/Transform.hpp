@@ -9,13 +9,17 @@ class Transform
 {
 public:
 
-	using pos_type = sf::Vector2f;
-	using scl_type = sf::Vector2f;
-	using rot_type = float;
+	using								pos_type = sf::Vector2f;
 
-	Transform();
+	using								scl_type = sf::Vector2f;
 
-	~Transform();
+	using								rot_type = float;
+
+	//
+
+										Transform();
+
+	virtual								~Transform();
 
 	//
 
@@ -37,7 +41,7 @@ public:
 
 	//
 
-	void								update();
+	virtual void						update();
 
 	//
 
@@ -77,15 +81,24 @@ public:
 
 private:
 
-	Transform *parent;
-	std::vector<Transform*> children;
+	Transform							*parent;
 
-	pos_type local_position;
-	rot_type local_rotation;
-	scl_type local_scale;
+	std::vector<Transform*>				children;
 
-	pos_type global_position;
-	rot_type global_rotation;
-	scl_type global_scale;
+	//
+
+	pos_type							local_position;
+
+	rot_type							local_rotation;
+
+	scl_type							local_scale;
+
+	//
+
+	pos_type							global_position;
+
+	rot_type							global_rotation;
+
+	scl_type							global_scale;
 
 };
