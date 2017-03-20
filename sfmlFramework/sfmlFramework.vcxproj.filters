@@ -84,7 +84,7 @@
     <ClInclude Include="Transform.hpp">
       <Filter>Header Files\World Management</Filter>
     </ClInclude>
-    <ClInclude Include="IGameUpdatable.h">
+    <ClInclude Include="IUpdatable.h">
       <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>

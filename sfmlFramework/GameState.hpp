@@ -11,16 +11,16 @@ public:
 	GameState(Application *const app) : IUpdatable(app) {}
 	virtual ~GameState() {}
 
-	virtual void onStart() {}
-	virtual void onUpdate(sf::Time) {}
-	virtual void onQuit() {}
+	virtual void onStart() override {}
+	virtual void onUpdate(sf::Time) override {}
+	virtual void onQuit() override {}
 
-	virtual void onRender() {}
+	virtual void onRender() override {}
 
-	virtual void onPause() {}
-	virtual void onResume() {}
+	virtual void onPause() override {}
+	virtual void onResume() override {}
 
-	virtual void onProcessEvents(sf::Event) {}
+	virtual void onProcessEvents(sf::Event) override {}
 
 private:
 };
