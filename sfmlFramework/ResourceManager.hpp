@@ -4,6 +4,8 @@
 
 class ResourceManager : public ISystem
 {
+	CLASS_INTROSPECTION(ResourceManager)
+
 public:
 
 	ResourceManager(Application *const app);
