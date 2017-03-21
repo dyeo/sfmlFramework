@@ -1,14 +1,14 @@
 #pragma once
 
-#include "IState.hpp"
+#include "ISystem.hpp"
 
-class MenuState : public IState
+class ResourceManager : public ISystem
 {
-	CLASS_INTROSPECTION(MenuState)
-
 public:
 
-	MenuState(Application *const app);
+	ResourceManager(Application *const app);
+
+	~ResourceManager();
 
 	virtual void onStart() override;
 

@@ -130,15 +130,16 @@
     <ClInclude Include="Event.hpp" />
     <ClInclude Include="EventSystem.hpp" />
     <ClInclude Include="Application.hpp" />
-    <ClInclude Include="GameState.hpp" />
+    <ClInclude Include="IState.hpp" />
     <ClInclude Include="IUpdatable.h" />
     <ClInclude Include="Macro.hpp" />
     <ClInclude Include="MenuState.hpp" />
     <ClInclude Include="Messaging.hpp" />
     <ClInclude Include="Object.hpp" />
+    <ClInclude Include="ResourceManager.hpp" />
     <ClInclude Include="SFMLEvent.hpp" />
     <ClInclude Include="SFML.hpp" />
-    <ClInclude Include="System.hpp" />
+    <ClInclude Include="ISystem.hpp" />
     <ClInclude Include="TestObjects.hpp" />
     <ClInclude Include="Transform.hpp" />
     <ClInclude Include="World.hpp" />
@@ -148,10 +149,8 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Transform.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

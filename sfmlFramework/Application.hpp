@@ -1,7 +1,7 @@
 #pragma once
 
 #include "SFML.hpp"
-#include "GameState.hpp"
+#include "IState.hpp"
 #include "EventSystem.hpp"
 
 #include <SFML\Graphics.hpp>
@@ -16,9 +16,9 @@ public:
 
 	void run();
 
-	void pushState(GameState *gameState);
+	void pushState(IState *gameState);
 	void popState();
-	GameState* peekState(int state);
+	IState* peekState(int state);
 
 	// event system
 	EventSystem eventSystem;
@@ -43,7 +43,7 @@ protected:
 private:
 
 	// stack of game states
-	std::vector < GameState* > stateStack;
+	std::vector < IState* > stateStack;
 
 
 	// the window to draw to

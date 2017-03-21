@@ -157,7 +157,7 @@ void Application::processEvents(sf::Event event)
 ///
 ///
 ///
-void Application::pushState(GameState *gameState)
+void Application::pushState(IState *gameState)
 {
 	stateStack.push_back(gameState);
 	stateStack.back()->onStart();
@@ -178,7 +178,7 @@ void Application::popState()
 ///
 ///
 ///
-GameState* Application::peekState(int state)
+IState* Application::peekState(int state)
 {
 	size_t numStates = stateStack.size();
 	int finalStatePos = (numStates + state) % numStates;

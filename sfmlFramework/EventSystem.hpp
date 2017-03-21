@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Event.hpp"
-#include "System.hpp"
+#include "ISystem.hpp"
 
 #include <functional>
 #include <map>
@@ -9,7 +9,7 @@
 
 class Application;
 
-class EventSystem : public System
+class EventSystem : public ISystem
 {
 	CLASS_INTROSPECTION(EventSystem)
 
@@ -17,7 +17,7 @@ public:
 
 	typedef std::function< void(const Event&) > EventCallback;
 
-	EventSystem(Application *const app) : System(app) {}
+	EventSystem(Application *const app) : ISystem(app) {}
 	~EventSystem() {}
 
 	void subscribe(const NameType &name, EventCallback &&callback);
