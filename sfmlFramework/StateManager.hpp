@@ -7,7 +7,7 @@ class StateManager : public ISystem
 {
 public:
 
-	StateManager(Application *const app);
+	StateManager(Application &const app);
 
 	~StateManager();
 

@@ -90,7 +90,7 @@ void Application::start()
 		}
 	});
 
-	getSystem<StateManager>()->push(new MenuState(this));
+	getSystem<StateManager>()->push(new MenuState(*this));
 }
 
 ///

@@ -2,7 +2,7 @@
 
 #include "Application.hpp"
 
-StateManager::StateManager(Application *const app)
+StateManager::StateManager(Application &const app)
 	: ISystem(app)
 {
 }
@@ -58,7 +58,7 @@ void StateManager::pop()
 	delete stateStack.back();
 	stateStack.pop_back();
 
-	if (stateStack.empty()) application->close();
+	if (stateStack.empty()) application.close();
 }
 
 IState* StateManager::peek(int state)

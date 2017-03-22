@@ -8,7 +8,7 @@ class ISystem : public IUpdatable
 
 public:
 
-	ISystem(Application *const app) : IUpdatable(app) {}
+	ISystem(Application &const app) : IUpdatable(app) {}
 	virtual ~ISystem() {}
 
 	virtual void onStart() = 0;

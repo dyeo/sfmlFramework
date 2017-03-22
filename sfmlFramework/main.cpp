@@ -4,9 +4,9 @@ int main()
 {
 	Application app;
 	
-	EventManager *em = new EventManager(&app);
-	ResourceManager *rm = new ResourceManager(&app);
-	StateManager *sm = new StateManager(&app);
+	EventManager *em = new EventManager(app);
+	ResourceManager *rm = new ResourceManager(app);
+	StateManager *sm = new StateManager(app);
 
 	app.addSystem(em);
 	app.addSystem(rm);

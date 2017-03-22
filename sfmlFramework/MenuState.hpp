@@ -8,7 +8,7 @@ class MenuState : public IState
 
 public:
 
-	MenuState(Application *const app);
+	MenuState(Application &const app);
 
 	virtual void onStart() override;
 

@@ -17,7 +17,7 @@ void MenuState_HandleSFMLEVent(const Event &e)
 		
 }
 
-MenuState::MenuState(Application *const app)
+MenuState::MenuState(Application &const app)
 	: IState(app)
 {
 	cout << __FUNCTION__ << endl;
@@ -27,13 +27,13 @@ void MenuState::onStart()
 {
 	cout << __FUNCTION__ << endl;
 
-	application->getSystem<EventManager>()->subscribe(SFMLEvent::className, [=](const Event &e)
+	application.getSystem<EventManager>()->subscribe(SFMLEvent::className, [=](const Event &e)
 	{
 		const SFMLEvent *sfe = dynamic_cast<const SFMLEvent*>(&e);
 
 		if (sfe->type == sfe->KeyPressed && sfe->key.code == sf::Keyboard::B)
 		{
-			application->getSystem<StateManager>()->pop();
+			application.getSystem<StateManager>()->pop();
 		}
 	});
 }
