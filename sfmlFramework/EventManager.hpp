@@ -9,17 +9,17 @@
 
 class Application;
 
-class EventSystem : public ISystem
+class EventManager : public ISystem
 {
-	CLASS_INTROSPECTION(EventSystem)
+	CLASS_INTROSPECTION(EventManager)
 
 public:
 
 	typedef std::function< void(const Event&) > EventCallback;
 
-	EventSystem(Application *const app) : ISystem(app) {}
+	EventManager(Application *const app) : ISystem(app) {}
 
-	~EventSystem() {}
+	~EventManager() {}
 
 	void subscribe(const NameType &name, EventCallback &&callback);
 

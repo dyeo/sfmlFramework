@@ -2,7 +2,7 @@
 
 #include "SFML.hpp"
 #include "IState.hpp"
-#include "EventSystem.hpp"
+#include "EventManager.hpp"
 #include "ResourceManager.hpp"
 
 #include <SFML\Graphics.hpp>
@@ -30,7 +30,7 @@ public:
 
 	// engine systems
 
-	EventSystem eventSystem;
+	EventManager eventSystem;
 
 	ResourceManager resourceMananger;
 

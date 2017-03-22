@@ -51,9 +51,6 @@
     <ClInclude Include="SFMLEvent.hpp">
       <Filter>Header Files\Events</Filter>
     </ClInclude>
-    <ClInclude Include="EventSystem.hpp">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
     <ClInclude Include="MenuState.hpp">
       <Filter>Header Files\Game States</Filter>
     </ClInclude>
@@ -93,13 +90,16 @@
     <ClInclude Include="ISystem.hpp">
       <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
+    <ClInclude Include="EventManager.hpp">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.hpp">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EventSystem.cpp">
-      <Filter>Source Files\Systems</Filter>
     </ClCompile>
     <ClCompile Include="MenuState.cpp">
       <Filter>Source Files\Game States</Filter>
@@ -112,6 +112,12 @@
     </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

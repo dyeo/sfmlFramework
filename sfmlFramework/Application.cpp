@@ -15,6 +15,7 @@ Application::Application()
 	, targetFrameRate(60)
 	, windowTitle("SFML Framework")
 	, eventSystem(this)
+	, resourceMananger(this)
 {
 }
 
