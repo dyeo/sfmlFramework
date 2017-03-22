@@ -29,7 +29,7 @@ public:
 
 	void pop();
 
-	IState* peek(int state);
+	IState *const peek(int state);
 
 	bool empty() const;
 

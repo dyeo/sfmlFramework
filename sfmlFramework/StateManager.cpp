@@ -69,7 +69,7 @@ void StateManager::pop()
 	if (stateStack.empty()) application.close();
 }
 
-IState* StateManager::peek(int state)
+IState *const StateManager::peek(int state)
 {
 	size_t numStates = stateStack.size();
 	size_t finalStatePos = (numStates + state) % numStates;
