@@ -8,7 +8,7 @@ class IState : public IUpdatable
 
 public:
 
-	IState(Application &const app) : IUpdatable(app) {}
+	IState(Application &app) : IUpdatable(app) {}
 	virtual ~IState() {}
 
 	virtual void onStart() = 0;

@@ -17,7 +17,7 @@ public:
 
 	typedef std::function< void(const Event&) > EventCallback;
 
-	EventManager(Application &const app) : ISystem(app) {}
+	EventManager(Application &app) : ISystem(app) {}
 
 	~EventManager() {}
 

@@ -8,7 +8,7 @@ class ResourceManager : public ISystem
 
 public:
 
-	ResourceManager(Application &const app);
+	ResourceManager(Application &app);
 
 	~ResourceManager();
 

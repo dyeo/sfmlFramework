@@ -194,7 +194,7 @@ ISystem *const Application::addSystem(ISystem *system)
 	{
 		std::cout << "Adding system " << type.name() << '(' << type.hash_code() << ')' << std::endl;
 		auto s = systems.insert(std::make_pair(type, system));
-		return system;
+		return (s.first->second);
 	}
 }
 

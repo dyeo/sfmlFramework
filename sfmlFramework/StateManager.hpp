@@ -7,9 +7,11 @@ class StateManager : public ISystem
 {
 public:
 
-	StateManager(Application &const app);
+	StateManager(Application &app);
 
 	~StateManager();
+
+	virtual void onStart() override;
 
 	virtual void onUpdate(sf::Time) override;
 
@@ -22,8 +24,6 @@ public:
 	virtual void onResume() override;
 
 	virtual void onProcessEvents(sf::Event) override;
-
-	virtual void onStart();
 
 	void push(IState *gameState);
 

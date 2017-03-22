@@ -24,13 +24,6 @@ public:
 
 	void run();
 
-	// engine systems
-
-	ISystem *const addSystem(ISystem *system);
-
-	template <typename S>
-	S *const getSystem();
-
 	// application state accessors
 
 	bool isPaused() const { return paused; }
@@ -44,6 +37,13 @@ public:
 	void resume();
 
 	void close();
+
+	// engine systems
+
+	ISystem *const addSystem(ISystem *system);
+
+	template <typename S>
+	S *const getSystem();
 
 protected:
 

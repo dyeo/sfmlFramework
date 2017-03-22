@@ -13,7 +13,7 @@ class IUpdatable
 
 public:
 
-	IUpdatable(Application &const app) : application(app) {}
+	IUpdatable(Application &app) : application(app) {}
 	virtual ~IUpdatable() {}
 
 	virtual void onStart() = 0;
@@ -27,7 +27,7 @@ public:
 
 	virtual void onProcessEvents(sf::Event) = 0;
 
-	Application &const application;
+	Application &application;
 
 private:
 };

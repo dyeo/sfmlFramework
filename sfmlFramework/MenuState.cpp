@@ -17,7 +17,7 @@ void MenuState_HandleSFMLEVent(const Event &e)
 		
 }
 
-MenuState::MenuState(Application &const app)
+MenuState::MenuState(Application &app)
 	: IState(app)
 {
 	cout << __FUNCTION__ << endl;
