@@ -182,19 +182,19 @@ void Application::processEvents(sf::Event event)
 ///
 ///
 ///
-bool Application::addSystem(ISystem *system)
+ISystem *const Application::addSystem(ISystem *system)
 {
 	auto type = std::type_index(typeid(*system));
 	auto iter = systems.find(type);
 	if (iter != systems.end())
 	{
-		return false;
+		return (*iter).second;
 	}
 	else
 	{
 		std::cout << "Adding system " << type.name() << '(' << type.hash_code() << ')' << std::endl;
-		systems.insert(std::make_pair(type, system));
-		return true;
+		auto s = systems.insert(std::make_pair(type, system));
+		return system;
 	}
 }
 

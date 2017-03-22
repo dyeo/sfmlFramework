@@ -26,7 +26,7 @@ public:
 
 	// engine systems
 
-	bool addSystem(ISystem *system);
+	ISystem *const addSystem(ISystem *system);
 
 	template <typename S>
 	S *const getSystem();
@@ -37,7 +37,7 @@ public:
 
 	bool isRunning() const { return running; }
 
-	//
+	// application state mutators
 
 	void pause();
 
