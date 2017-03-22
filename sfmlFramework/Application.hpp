@@ -2,11 +2,15 @@
 
 #include "SFML.hpp"
 #include "IState.hpp"
+
 #include "EventManager.hpp"
 #include "ResourceManager.hpp"
+#include "StateManager.hpp"
 
 #include <SFML\Graphics.hpp>
 #include <string>
+#include <unordered_map>
+#include <typeindex>
 
 class Application : public sf::NonCopyable
 {
@@ -16,31 +20,32 @@ public:
 
 	~Application();
 
-	//
+	// core run function
 
 	void run();
 
-	// state management
-
-	void pushState(IState *gameState);
-
-	void popState();
-
-	IState* peekState(int state);
-
 	// engine systems
 
-	EventManager eventSystem;
+	bool addSystem(ISystem *system);
 
-	ResourceManager resourceMananger;
+	template <typename S>
+	S *const getSystem();
 
-protected:
+	// application state accessors
 
 	bool isPaused() const { return paused; }
 
 	bool isRunning() const { return running; }
 
 	//
+
+	void pause();
+
+	void resume();
+
+	void close();
+
+protected:
 
 	void start();
 
@@ -52,16 +57,12 @@ protected:
 
 	void render();
 		 
-	void pause();
-
-	void resume();
-		 
 	void processEvents(sf::Event);
 
 private:
 
-	// stack of game states
-	std::vector < IState* > stateStack;
+	// gmae systems
+	std::unordered_map< std::type_index, ISystem*> systems;
 
 	// the window to draw to
 	sf::RenderWindow window;

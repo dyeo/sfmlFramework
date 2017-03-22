@@ -2,7 +2,9 @@
 #include "SFMLEvent.hpp"
 #include "MenuState.hpp"
 
+#include <typeinfo>
 #include <iostream>
+#include <type_traits>
 
 using std::cout; using std::endl;
 
@@ -14,8 +16,6 @@ Application::Application()
 	, windowHeight(720)
 	, targetFrameRate(60)
 	, windowTitle("SFML Framework")
-	, eventSystem(this)
-	, resourceMananger(this)
 {
 }
 
@@ -72,7 +72,7 @@ void Application::start()
 	window.setFramerateLimit(targetFrameRate);
 	running = true;
 
-	eventSystem.subscribe(SFMLEvent::className, [=](const Event& e)
+	getSystem<EventManager>()->subscribe(SFMLEvent::className, [=](const Event& e)
 	{
 		SFMLEvent event = *dynamic_cast<const SFMLEvent *>(&e);
 
@@ -90,7 +90,7 @@ void Application::start()
 		}
 	});
 
-	pushState(new MenuState(this));
+	getSystem<StateManager>()->push(new MenuState(this));
 }
 
 ///
@@ -99,7 +99,11 @@ void Application::start()
 void Application::update(sf::Time deltaTime)
 {
 	if (!running) return;
-	stateStack.back()->onUpdate(deltaTime);
+
+	for (auto i = systems.begin(); i != systems.end(); ++i)
+	{
+		i->second->onUpdate(deltaTime);
+	}
 }
 
 ///
@@ -119,8 +123,11 @@ void Application::render()
 	if (!running) return;
 
 	window.clear();
-	
-	stateStack.back()->onRender();
+
+	for (auto i = systems.begin(); i != systems.end(); ++i)
+	{
+		i->second->onRender();
+	}
 
 	window.display();
 }
@@ -131,7 +138,11 @@ void Application::render()
 void Application::pause()
 {
 	paused = true;
-	stateStack.back()->onPause();
+
+	for (auto i = systems.begin(); i != systems.end(); ++i)
+	{
+		i->second->onPause();
+	}
 }
 
 ///
@@ -140,7 +151,19 @@ void Application::pause()
 void Application::resume()
 {
 	paused = false;
-	stateStack.back()->onResume();
+
+	for (auto i = systems.begin(); i != systems.end(); ++i)
+	{
+		i->second->onResume();
+	}
+}
+
+///
+///
+///
+void Application::close()
+{
+	quit();
 }
 
 ///
@@ -148,44 +171,50 @@ void Application::resume()
 ///
 void Application::processEvents(sf::Event event)
 {
-	eventSystem.onProcessEvents(event);
+	for (auto i = systems.begin(); i != systems.end(); ++i)
+	{
+		i->second->onProcessEvents(event);
+	}
 
 	if (!running) return;
-
-	stateStack.back()->onProcessEvents(event);
 }
 
 ///
 ///
 ///
-void Application::pushState(IState *gameState)
+bool Application::addSystem(ISystem *system)
 {
-	stateStack.push_back(gameState);
-	stateStack.back()->onStart();
-}
-
-///
-///
-///
-void Application::popState()
-{
-	stateStack.back()->onQuit();
-	delete stateStack.back();
-	stateStack.pop_back();
-
-	if (stateStack.empty()) running = false;
-}
-
-///
-///
-///
-IState* Application::peekState(int state)
-{
-	size_t numStates = stateStack.size();
-	int finalStatePos = (numStates + state) % numStates;
-	if (finalStatePos >= 0 && finalStatePos < numStates)
+	auto type = std::type_index(typeid(*system));
+	auto iter = systems.find(type);
+	if (iter != systems.end())
 	{
-		return *(stateStack.begin() + finalStatePos);
+		return false;
 	}
-	return nullptr;
+	else
+	{
+		std::cout << "Adding system " << type.name() << '(' << type.hash_code() << ')' << std::endl;
+		systems.insert(std::make_pair(type, system));
+		return true;
+	}
+}
+
+///
+///
+///
+template <typename S>
+S *const Application::getSystem()
+{
+	static_assert(std::is_base_of<ISystem, S>::value, "S does not implement ISystem");
+
+	auto type = std::type_index(typeid(S));
+	auto iter = systems.find(type);
+
+	if (iter != systems.end())
+	{
+		return (S *const)(*iter).second;
+	}
+	else
+	{
+		return nullptr;
+	}
 }

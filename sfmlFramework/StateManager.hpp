@@ -5,6 +5,8 @@
 
 class StateManager : public ISystem
 {
+public:
+
 	StateManager(Application *const app);
 
 	~StateManager();
@@ -22,5 +24,18 @@ class StateManager : public ISystem
 	virtual void onProcessEvents(sf::Event) override;
 
 	virtual void onStart();
+
+	void push(IState *gameState);
+
+	void pop();
+
+	IState* peek(int state);
+
+	bool empty() const;
+
+private:
+
+	// stack of game states
+	std::vector < IState* > stateStack;
 
 };
