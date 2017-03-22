@@ -37,7 +37,7 @@ public:
 
 	bool								isChild(Transform *const child) const;
 
-	int									getChildren() const { return children.size(); }
+	size_t								getChildren() const { return children.size(); }
 
 	//
 

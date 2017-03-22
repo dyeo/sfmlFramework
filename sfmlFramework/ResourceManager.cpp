@@ -1,6 +1,6 @@
 #include "ResourceManager.hpp"
 
-ResourceManager::ResourceManager(Application &const app)
+ResourceManager::ResourceManager(Application & app)
 	: ISystem(app)
 {
 }
