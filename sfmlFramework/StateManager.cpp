@@ -2,7 +2,7 @@
 
 #include "Application.hpp"
 
-StateManager::StateManager(Application &const app)
+StateManager::StateManager(Application & app)
 	: ISystem(app)
 {
 }

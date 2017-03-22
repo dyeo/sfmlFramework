@@ -75,12 +75,6 @@
     <ClInclude Include="Object.hpp">
       <Filter>Header Files\Macros</Filter>
     </ClInclude>
-    <ClInclude Include="SFML.hpp">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="Application.hpp">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceManager.hpp">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
@@ -96,6 +90,12 @@
     <ClInclude Include="StateManager.hpp">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
+    <ClInclude Include="Application.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -107,9 +107,6 @@
     <ClCompile Include="Transform.cpp">
       <Filter>Source Files\World Management</Filter>
     </ClCompile>
-    <ClCompile Include="Application.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files\Systems</Filter>
     </ClCompile>
@@ -118,6 +115,9 @@
     </ClCompile>
     <ClCompile Include="StateManager.cpp">
       <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
