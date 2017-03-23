@@ -43,6 +43,9 @@
     <Filter Include="Header Files\Macros">
       <UniqueIdentifier>{678841f1-b6a1-4d7d-a9cc-12b88a333a7e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utilities">
+      <UniqueIdentifier>{7271963c-2936-41d8-9467-360e50d0f96b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Event.hpp">
@@ -95,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="SFML.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gate.hpp">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

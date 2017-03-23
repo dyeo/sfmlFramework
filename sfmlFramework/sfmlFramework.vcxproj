@@ -130,6 +130,7 @@
     <ClInclude Include="Event.hpp" />
     <ClInclude Include="EventManager.hpp" />
     <ClInclude Include="Application.hpp" />
+    <ClInclude Include="Gate.hpp" />
     <ClInclude Include="IState.hpp" />
     <ClInclude Include="IUpdatable.h" />
     <ClInclude Include="Macro.hpp" />
